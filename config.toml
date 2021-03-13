@@ -35,12 +35,13 @@ external_links_no_referrer = true
 [slugify]
 taxonomies = "off"
 anchors = "off"
+paths = "off"
 
 [extra]
 # Put all your custom variables here
 
 navbar_items = [
-	{ url = "$BASE_URL/posts", name = "Posts" },
+	{ url = "$BASE_URL/archives", name = "Archives" },
 	{ url = "$BASE_URL/tags", name = "Tags" },
 	{ url = "$BASE_URL/categories", name = "Categories" },
 ]
