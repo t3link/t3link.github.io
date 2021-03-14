@@ -9,7 +9,7 @@ tags = ["zola", "github-pages"]
 toc = false
 +++
 
-目前博客托管在 [github pages](https://docs.github.com/en/github/working-with-github-pages) 上使用的生成器是 [zola](https://github.com/getzola/zola)。昨天看到一个链接中带有 `~` 波浪号，觉得挺酷的，就想在自己的网站中也用上，所以把文字目录文件夹和图片资源文件夹都以 `~` 开头，但是发布到 `github pages` 后发现带有 `~` 波浪号的链接都 `404` 了。
+目前博客托管在 [github pages](https://docs.github.com/en/github/working-with-github-pages) 上，由 [zola](https://github.com/getzola/zola) 生成静态的网页文件。昨天看到一个链接中带有 `~` 波浪号，觉得挺酷的，就想在自己的网站中也用上，所以把文字目录文件夹和图片资源文件夹都以 `~` 开头，但是发布到 `github pages` 后发现带有 `~` 波浪号的链接都 `404` 了。
 
 <!-- more -->
 
@@ -19,6 +19,7 @@ toc = false
 > letters, decimal digits, hyphen, period, underscore, and tilde.
 > 
 > unreserved  = ALPHA / DIGIT / "-" / "." / "_" / "~"
+
 可以看到 `~` 是允许使用的，而且一般是用来标识目录。但是 `github pages` 托管就出现了问题。
 
 几番搜索终于找到了一个解决方案
@@ -30,6 +31,8 @@ toc = false
 > [help.github.com/articles/files-that-start-with-an-underscore-are-missing/](https://help.github.com/articles/files-that-start-with-an-underscore-are-missing/)
 >
 > If you’re not using Jekyll, you can add an empty file named `.nojekyll` to the root of your publishing source to avoid this.
+
+
 所以对于 `zola` 的解决方案就是在源分支 `master` 的 `static` 文件夹里面添加一个空文件 `.nojekyll`
 这样通过 `github actions` 发布到 `gh-pages` 分支的时候就会被自动复制到根目录下
 
