@@ -14,8 +14,8 @@ default_language = "en"
 generate_feed = true
 build_search_index = true
 
-
-minify_html = true
+# TODO 等 0.14.0 版本修复再修改
+minify_html = false
 
 [markdown]
 # Whether to do syntax highlighting
