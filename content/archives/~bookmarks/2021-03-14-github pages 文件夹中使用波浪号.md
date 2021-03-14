@@ -9,7 +9,7 @@ tags = ["github-pages", "zola"]
 toc = false
 +++
 
-目前站点托管在 [github pages](https://docs.github.com/en/github/working-with-github-pages) 上，静态文件生成用的是 [zola](https://github.com/getzola/zola)。昨天看到一个链接中带有 `~` 波浪号，觉得挺有意思的，就想在自己的网站中也用上，所以把文字目录文件夹和图片资源文件夹都以 `~` 开头，但是发布到 `github pages` 后发现带有 `~` 波浪号这种特殊符号的链接都 `404` 了。
+目前站点托管在 [github pages](https://docs.github.com/en/github/working-with-github-pages) 上，静态文件生成用的是 [zola](https://github.com/getzola/zola)。昨天看到一个链接中带有 `~` 波浪号，觉得挺有意思的，就想在自己的网站中也用上，所以把文字目录文件夹和图片资源文件夹都以 `~` 开头，但是发布到 `github pages` 后发现带有 `~` 波浪号这种特殊符号的链接都 `404` 。
 
 <!-- more -->
 
