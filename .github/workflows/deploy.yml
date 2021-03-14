@@ -24,4 +24,5 @@ jobs:
         env:
           PAGES_BRANCH: gh-pages
           BUILD_DIR: .
+          ZOLA_PERF_LOG: true
           TOKEN: ${{ secrets.TOKEN }}
