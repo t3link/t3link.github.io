@@ -15,7 +15,7 @@ generate_feed = true
 build_search_index = true
 
 
-minify_html = false
+minify_html = true
 
 [markdown]
 # Whether to do syntax highlighting
