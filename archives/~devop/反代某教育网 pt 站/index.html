@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+  
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+  <link rel="alternate icon" href="/icons/favicon.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css" rel="stylesheet" /> -->
+
+  <!-- <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" /> -->
+
+  <link href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+    
+t3&#x27;s docs | 反代某教育网 pt 站
+
+  </title>
+
+  <!-- <script crossorigin="anonymous" src="/js/201b8d5e05.js"></script> -->
+  <script crossorigin="anonymous" src="/js/free.min.js"></script>
+  <script crossorigin="anonymous" src="/js/free-v4-shims.min.js"></script>
+
+  
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="https:&#x2F;&#x2F;docs.tothetracker.link">t3&#x27;s docs</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          <!-- 兼容之前的单语言版导航栏 -->
+                    
+            
+              <a class="navbar-item" href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;archives'>
+                Archives
+              </a>
+            
+              <a class="navbar-item" href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;tags'>
+                Tags
+              </a>
+            
+              <a class="navbar-item" href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;categories'>
+                Categories
+              </a>
+                
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article class="box">
+          <h1 class="title is-1">
+            反代某教育网 pt 站
+          </h1>
+          <p class="subtitle"></p>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+    t3link published on
+    
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2021-03-15'>March 15, 2021</time>
+    
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    6 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    1011 words
+  </p>
+
+            </div>
+            <div class="column is-8">
+              
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+            </div>
+          </div>
+          <div class="content mt-2">
+            <p>最近想给朋友发送一个邀请，但是我目前不在教育网环境，只好搭一个反代进去了。</p>
+<p>虽然最后被放鸽子了...</p>
+<span id="continue-reading"></span><h2 id="准备一个_vps"><a class="zola-anchor" href="#准备一个_vps" aria-label="Anchor link for: 准备一个_vps">
+    #<span class="sub">2</span>
+</a>
+准备一个 <code>vps</code></h2>
+<p>首选需要一个有 <code>ipv6</code> 网络的服务器，我这里只是打算临时访问一些，所以不考虑什么价钱了，直接在 <a rel="noopener nofollow noreferrer" target="_blank" href="https://cloud.linode.com/linodes">linode</a> 上创建了一个 <code>Singapore, SG</code> 的节点，镜像选择 <code>Debian 10</code>。</p>
+<p><code>linode</code> 是按小时付费的，用完了直接删掉实例就行。</p>
+<p>如果不幸碰到你的 <code>vps</code> 被墙，请使用梯子代理访问。</p>
+<h2 id="修改_ssh_端口"><a class="zola-anchor" href="#修改_ssh_端口" aria-label="Anchor link for: 修改_ssh_端口">
+    #<span class="sub">2</span>
+</a>
+修改 <code>ssh</code> 端口</h2>
+<blockquote>
+<p>记住任何修改之前先备份的原则</p>
+</blockquote>
+<p><code>linode</code> 的 <code>Debian 10</code> 镜像默认允许 <code>root</code> 用户密码访问，并且没有开启防火墙</p>
+<p>首先确保你的 <code>ssh</code> 公钥上传到了服务器的 <code>~/.ssh/authorized_keys</code></p>
+<p>测试下是否可以用公钥直接访问，然后再修改 <code>/etc/ssh/sshd_config</code></p>
+<pre style="background-color:#fdf6e3;">
+<code><span style="color:#657b83;"># 修改端口
+Port 28888
+# 关闭 Root 用户的密码访问
+PermitRootLogin without-password
+</span></code></pre>
+<p>然后 <code>service sshd restart</code> 重启 <code>ssh</code> 服务</p>
+<p>测试端口是否监听 <code>lsof -i:28888</code></p>
+<p>先不要退出当前终端，当前终端仍然使用默认的 <code>22</code> 端口连接着</p>
+<p>新起一个终端使用新端口访问 <code>ssh root@xx.xx.xx.xx -p 28888</code></p>
+<h2 id="nginx_反代"><a class="zola-anchor" href="#nginx_反代" aria-label="Anchor link for: nginx_反代">
+    #<span class="sub">2</span>
+</a>
+<code>nginx</code> 反代</h2>
+<p>假设该校园网原始域名是 <code>https://bt.xxx.com</code>，你的反代域名是 <code>https://bt.yourdomain.com</code></p>
+<h3 id="生成_ssl_证书"><a class="zola-anchor" href="#生成_ssl_证书" aria-label="Anchor link for: 生成_ssl_证书">
+    #<span class="sub">3</span>
+</a>
+生成 <code>ssl</code> 证书</h3>
+<p>这一步当然是可选的，我知识记录一下。</p>
+<p>目前我觉得最简单的方式生成 <code>Let's Encrypt</code> 免费证书的方式是 <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/acmesh-official/acme.sh">acme.sh</a>，其他方式也可以参考 <a rel="noopener nofollow noreferrer" target="_blank" href="https://letsencrypt.org/docs/client-options/">letsencrypt-client-options</a></p>
+<p>首先安装 <code>curl  https://get.acme.sh | sh</code>，所有的文件修改都会在 <code>~/.acme.sh/</code> 下发生。</p>
+<p>这一步应该会提示你如果需要使用 <code>standalone</code> 模式，需要先安装 <code>apt install socat -y</code></p>
+<p><code>standalone</code> 就是 <code>acme</code> 自己当作一个 <code>Web</code> 服务器，但是需要保证 <code>80</code> 端口没有被占用。</p>
+<p>这个应该是最简单的了，没有其他服务的干扰。</p>
+<p>下面生成 <code>bt.yourdomain.com</code> 域名的证书</p>
+<pre style="background-color:#fdf6e3;">
+<code><span style="color:#657b83;">acme.sh --issue -d bt.yourdomain.com --standalone
+
+...
+[Mon 15 Mar 2021 12:27:28 PM UTC] Your cert is in  /root/.acme.sh/bt.yourdomain.com/bt.yourdomain.com.cer
+[Mon 15 Mar 2021 12:27:28 PM UTC] Your cert key is in  /root/.acme.sh/bt.yourdomain.com/bt.yourdomain.com.key
+[Mon 15 Mar 2021 12:27:28 PM UTC] The intermediate CA cert is in  /root/.acme.sh/bt.yourdomain.com/ca.cer
+[Mon 15 Mar 2021 12:27:28 PM UTC] And the full chain certs is there:  /root/.acme.sh/bt.yourdomain.com/fullchain.cer
+</span></code></pre>
+<p>再转换成 <code>nginx</code> 所使用的证书格式</p>
+<pre style="background-color:#fdf6e3;">
+<code><span style="color:#657b83;">acme.sh --install-cert -d bt.yourdomain.com \
+--key-file       /root/.acme.sh/bt.yourdomain.com/nginx/key.pem  \
+--fullchain-file /root/.acme.sh/bt.yourdomain.com/nginx/cert.pem
+</span></code></pre><h3 id="反代"><a class="zola-anchor" href="#反代" aria-label="Anchor link for: 反代">
+    #<span class="sub">3</span>
+</a>
+反代</h3>
+<ol>
+<li>
+<p>首先安装 <code>apt install nginx -y</code>，配置文件在 <code>/etc/nginx/</code> 里</p>
+</li>
+<li>
+<p>新建反代规则文件</p>
+</li>
+</ol>
+<pre style="background-color:#fdf6e3;">
+<code><span style="color:#657b83;">vim /etc/nginx/bt_proxy.conf
+
+location / {
+    proxy_pass          https://bt.xxx.com/;
+    proxy_redirect      default;
+    proxy_set_header    Accept-Encoding &quot;&quot;;
+    proxy_set_header    X-Real-IP       $remote_addr;
+    proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+
+    subs_filter src=&quot;https?://bt.xxx.com/ src=&quot;/ ir;
+    subs_filter href=&quot;https?://bt.xxx.com/ href=&quot;/ ir;
+}
+</span></code></pre>
+<ol start="3">
+<li>新建禁止网络蜘蛛爬取规则</li>
+</ol>
+<pre style="background-color:#fdf6e3;">
+<code><span style="color:#657b83;">vim /etc/nginx/spider403.conf
+
+location = /robots.txt {
+    default_type text/html;
+    add_header Content-Type &quot;text/plain; charset=UTF-8&quot;;
+    return 200 &quot;User-Agent: *\nDisallow: /&quot;;
+}
+
+if ($http_user_agent ~* &quot;qihoobot|Baiduspider|Googlebot|Googlebot-Mobile|Googlebot-Image|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo! Slurp|Yahoo! Slurp China|YoudaoBot|Sosospider|Sogou spider|Sogou web spider|MSNBot|ia_archiver|Tomato Bot&quot;) {
+    return 403;
+}
+</span></code></pre>
+<ol start="4">
+<li>新建站点配置文件</li>
+</ol>
+<pre style="background-color:#fdf6e3;">
+<code><span style="color:#657b83;">vim /etc/nginx/sites-enabled/bt.yourdomain.com.conf
+
+server {
+    listen          80;
+    server_name     bt.yourdomain.com;
+    include         spider403.conf;
+
+    # 如果不需要强制 301 跳转到 https 打开下面的注释
+    # include       bt_proxy.conf;
+    # 并且注释掉下面那句
+    return          301 https://$server_name$request_uri;
+}
+server {
+    listen          443 ssl;
+    server_name     bt.yourdomain.com;
+    include         spider403.conf;
+
+    client_max_body_size 40m;
+
+    # ssl证书地址
+    ssl_certificate      /root/.acme.sh/bt.yourdomain.com/nginx/cert.pem;  # pem文件的路径
+    ssl_certificate_key  /root/.acme.sh/bt.yourdomain.com/nginx/key.pem;   # key文件的路径
+
+    # ssl验证相关配置
+    ssl_session_timeout  5m;    #缓存有效期
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;    #加密算法
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;    #安全链接可选的加密协议
+    ssl_prefer_server_ciphers on;   #使用服务器端的首选算法
+
+    include         bt_proxy.conf;
+}
+</span></code></pre>
+<ol start="5">
+<li>测试并运行</li>
+</ol>
+<pre style="background-color:#fdf6e3;">
+<code><span style="color:#657b83;">nginx -t
+
+service nginx restart
+</span></code></pre>
+<ol start="6">
+<li>添加 <code>DNS</code> 记录</li>
+</ol>
+<p>如果使用了 <a rel="noopener nofollow noreferrer" target="_blank" href="https://dash.cloudflare.com/">cloudflare</a> 的 <code>CDN</code> (已代理)，并且你的网站强制了 <code>301 https</code> 跳转。</p>
+<p>那么 <code>cloudflare</code> 的 <code>SSL/TLS</code> 加密模式要设置为 <code>Full</code> 或者 <code>Strict</code> </p>
+<p>现在你可以用 <code>https://bt.yourdomain.com</code> 来访问 <code>https://bt.xxx.com</code> 了</p>
+<p>如果直接用 <code>ip</code> 访问会走到 <code>/etc/nginx/site-enabled/default</code> 的 <code>default_server</code></p>
+
+          </div>
+          <div class="columns is-multiline is-gapless">
+            <div class="column">
+              
+              
+  <p>
+    <span class="has-text-black has-text-weight-normal">Categories:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;categories&#x2F;运维开发&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-folder fa-xs"></i>
+        </span>
+        运维开发
+      </a>
+    
+  </p>
+
+              
+            </div>
+            <div class="column has-text-right-desktop">
+              
+              
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;tags&#x2F;nginx&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        nginx
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;tags&#x2F;linux&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        linux
+      </a>
+    
+  </p>
+
+              
+            </div>
+          </div>
+        </article>
+      </div>
+      
+      <div class="column is-2 is-hidden-mobile">
+        <aside class="menu" style="position: sticky; top: 48px">
+          <div class="esa-catalog-title">CONTENTS</div>
+          <ul class="menu-list">
+            
+            <li>
+              <a id="link-准备一个_vps" class="toc is-size-7 is-active" href="https://docs.tothetracker.link/archives/~devop/反代某教育网 pt 站/#准备一个_vps">
+                准备一个 vps
+              </a>
+              
+            </li>
+            
+            <li>
+              <a id="link-修改_ssh_端口" class="toc is-size-7 " href="https://docs.tothetracker.link/archives/~devop/反代某教育网 pt 站/#修改_ssh_端口">
+                修改 ssh 端口
+              </a>
+              
+            </li>
+            
+            <li>
+              <a id="link-nginx_反代" class="toc is-size-7 " href="https://docs.tothetracker.link/archives/~devop/反代某教育网 pt 站/#nginx_反代">
+                nginx 反代
+              </a>
+              
+              <ul>
+                
+                <li>
+                  <a id="link-生成_ssl_证书" class="toc is-size-7" href="https://docs.tothetracker.link/archives/~devop/反代某教育网 pt 站/#生成_ssl_证书">
+                    生成 ssl 证书
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-反代" class="toc is-size-7" href="https://docs.tothetracker.link/archives/~devop/反代某教育网 pt 站/#反代">
+                    反代
+                  </a>
+                </li>
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
+        </aside>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+  
+
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+           
+          <div class="has-text-centered">
+            <a class="earlier" href="https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;archives&#x2F;~bookmarks&#x2F;github pages 文件夹中使用波浪号&#x2F;">
+              github pages 文件夹使用波浪号<span class="icon">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+          
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  
+
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div id="hyvor-talk-view">
+          <script src="https://utteranc.es/client.js"
+                  repo="t3link/t3link.github.io"
+                  issue-number="4"
+                  label="^💬"
+                  theme="github-light"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/getzola/zola">Zola</a> with <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/t3link/DeepThought">DeepThought</a>
+    </p>
+  </footer>
+  <a class="back-to-top" id="scroll_to_top_id">
+    <div>
+        <span><img src="https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;images&#x2F;back_top.png"/></span>
+    </div>
+    <div style="float: right;">
+        <span id="scrollpercent">0</span>%
+    </div>
+</a>
+  
+
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script> -->
+
+  <!-- <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script> -->
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script> -->
+
+  <script src="/js/site.js"></script>
+
+  <script src="/js/elasticlunr.min.js"></script>
+  <script src="/search_index.en.js"></script>
+
+  <script src="/js/scroll.js"></script>
+
+  <!-- block 的用法: 父模版定义block，子模版中重写 -->
+  
+
+<script type="text/javascript">
+  const menuBarHeight = $("nav.navbar").height();
+  const tocItems = $('.toc');
+  const navSections = new Array($('.toc').length);
+
+  tocItems.each(function (i) {
+    let id = $(this).attr("id").substring(5);
+    navSections[i] = document.getElementById(id);
+  })
+
+  function isVisible(tocIndex) {
+    const current = navSections[tocIndex];
+    const next = tocIndex < tocItems.length - 1 ? navSections[tocIndex+1] : $("section.section").get(1);
+    
+    const c = current.getBoundingClientRect();
+    const n = next.getBoundingClientRect();
+    const h = (window.innerHeight || document.documentElement.clientHeight);
+
+    return (c.top <= h) && (c.top + (n.top - c.top) - menuBarHeight >= 0);
+  }
+
+  function activateIfVisible() {
+    for (b = true, i = 0; i < tocItems.length; i++) {
+      if (b && isVisible(i)) {
+        tocItems[i].classList.add('is-active');
+        b = false;
+      } else
+        tocItems[i].classList.remove('is-active');
+    }
+  }
+
+  var isTicking = null;
+  window.addEventListener('scroll', () => {
+    if (!isTicking) {
+      window.requestAnimationFrame(() => {
+        activateIfVisible();
+        isTicking = false;
+      });
+      isTicking = true;
+    }
+  }, false);
+</script>
+
+
+</body>
+
+</html>

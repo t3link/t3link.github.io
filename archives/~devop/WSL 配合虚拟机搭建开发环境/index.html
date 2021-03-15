@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+  
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+  <link rel="alternate icon" href="/icons/favicon.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css" rel="stylesheet" /> -->
+
+  <!-- <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" /> -->
+
+  <link href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+    
+t3&#x27;s docs | WSL 配合虚拟机搭建开发环境
+
+  </title>
+
+  <!-- <script crossorigin="anonymous" src="/js/201b8d5e05.js"></script> -->
+  <script crossorigin="anonymous" src="/js/free.min.js"></script>
+  <script crossorigin="anonymous" src="/js/free-v4-shims.min.js"></script>
+
+  
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="https:&#x2F;&#x2F;docs.tothetracker.link">t3&#x27;s docs</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          <!-- 兼容之前的单语言版导航栏 -->
+                    
+            
+              <a class="navbar-item" href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;archives'>
+                Archives
+              </a>
+            
+              <a class="navbar-item" href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;tags'>
+                Tags
+              </a>
+            
+              <a class="navbar-item" href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;categories'>
+                Categories
+              </a>
+                
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article class="box">
+          <h1 class="title is-1">
+            WSL 配合虚拟机搭建开发环境
+          </h1>
+          <p class="subtitle"></p>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+    t3link published on
+    
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2021-03-13'>March 13, 2021</time>
+    
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    7 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    1363 words
+  </p>
+
+            </div>
+            <div class="column is-8">
+              
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+            </div>
+          </div>
+          <div class="content mt-2">
+            <p>由于我笔记本处理器是 <code>Zen3</code> 架构 <code>R7-5800U</code>，当前 <code>Linux</code> 的内核显示驱动还有点问题，无法调节亮度和连接显示器，所以当前仍然用的是 <code>Windows 10</code> 系统，这样就只能用 <code>Vmware</code> 装一个虚拟机了。自带的 <code>WSL</code> 子系统我觉得用来配合 <code>Windows Terminal</code> 来做个 <code>Linux</code> 终端模拟器更好，不会在上面构建开发环境。</p>
+<span id="continue-reading"></span><h2 id="开启_WSL"><a class="zola-anchor" href="#开启_WSL" aria-label="Anchor link for: 开启_WSL">
+    #<span class="sub">2</span>
+</a>
+开启 <code>WSL</code></h2>
+<p>由于我只是想要一个好看的终端，所以安装 <code>WSL1</code> 就行</p>
+<p>并且 <code>WSL1</code> 还可以直接通过 <code>localhost</code> 访问主机</p>
+<p>安装链接 <a rel="noopener nofollow noreferrer" target="_blank" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10">https://docs.microsoft.com/zh-cn/windows/wsl/install-win10</a></p>
+<p>执行完步骤1直接跳到步骤6</p>
+<p>装完 <code>WSL</code> 从 <a rel="noopener nofollow noreferrer" target="_blank" href="https://aka.ms/terminal">Microsoft Store</a> 安装 <code>Windows Terminal</code>，感觉是 <code>Windows 10</code> 上最好用的终端了。可以像 <code>iterm2</code> 一样左右、上下分屏。</p>
+<ul>
+<li><code>Ctrl + Alt + '+'</code> 左右分屏</li>
+<li><code>Ctrl + Alt + '-'</code> 上下分屏</li>
+<li><code>Alt + Shift + 上/下</code> 调整上下分屏的窗口大小</li>
+<li><code>Alt + Shift + 左/右</code> 调整左右分屏的窗口大小</li>
+</ul>
+<h2 id="虚拟机安装"><a class="zola-anchor" href="#虚拟机安装" aria-label="Anchor link for: 虚拟机安装">
+    #<span class="sub">2</span>
+</a>
+虚拟机安装</h2>
+<ol>
+<li>
+<p>磁盘最大空间，最好设置一个足够大的容量，要不然安装完成之后再去修改会比较麻烦。<code>120g</code></p>
+</li>
+<li>
+<p>我删除了自动分区创建的 <code>/swap</code> 交换分区 </p>
+</li>
+<li>
+<p>语言选择英文</p>
+</li>
+<li>
+<p>勾选 <code>SSH Server</code></p>
+</li>
+</ol>
+<h2 id="系统设置"><a class="zola-anchor" href="#系统设置" aria-label="Anchor link for: 系统设置">
+    #<span class="sub">2</span>
+</a>
+系统设置</h2>
+<h3 id="设置静态_ip"><a class="zola-anchor" href="#设置静态_ip" aria-label="Anchor link for: 设置静态_ip">
+    #<span class="sub">3</span>
+</a>
+设置静态 <code>ip</code></h3>
+<blockquote>
+<p><strong>修改系统文件之前一定要先备份</strong></p>
+</blockquote>
+<ol>
+<li>修改 <code>/etc/network/interfaces</code> 设置 <code>dhcp -&gt; static</code></li>
+</ol>
+<pre style="background-color:#fdf6e3;">
+<code class="language-bash" data-lang="bash"><span style="color:#93a1a1;">#iface ens33 inet dhcp
+</span><span style="color:#b58900;">iface</span><span style="color:#657b83;"> ens33 inet static
+</span><span style="color:#b58900;">address</span><span style="color:#657b83;"> 192.168.32.128/24
+</span><span style="color:#b58900;">gateway</span><span style="color:#657b83;"> 192.168.32.2
+</span></code></pre>
+<p>网关地址查看 <code>Vmware</code> 的网络配置 （我这里用的是 <code>NAT</code> 网络）编辑 -&gt; 虚拟网络编辑器 -&gt; NAT设置</p>
+<p>然后重启生效</p>
+<ol start="2">
+<li>修改 <code>/etc/resolv.conf</code> 添加 <code>dns</code> 服务器</li>
+</ol>
+<pre style="background-color:#fdf6e3;">
+<code class="language-bash" data-lang="bash"><span style="color:#b58900;">nameserver</span><span style="color:#657b83;"> 8.8.8.8
+</span><span style="color:#b58900;">nameserver</span><span style="color:#657b83;"> 114.114.114.114
+</span></code></pre>
+<ol start="3">
+<li>配置 <code>hosts</code></li>
+</ol>
+<p><code>WSL</code> 的 <code>/etc/hosts</code> 是动态生成的，最直接的办法就是修改主机的 <code>C:\Windows\System32\drivers\etc\hosts</code> 文件，然后 <code>wsl --shutdown</code> 重启</p>
+<p>参考：<a rel="noopener nofollow noreferrer" target="_blank" href="https://wiki.debian.org/NetworkConfiguration">https://wiki.debian.org/NetworkConfiguration</a></p>
+<h3 id="设置_ssh_密钥登录"><a class="zola-anchor" href="#设置_ssh_密钥登录" aria-label="Anchor link for: 设置_ssh_密钥登录">
+    #<span class="sub">3</span>
+</a>
+设置 <code>ssh</code> 密钥登录</h3>
+<p><code>debian</code> 的默认策略不允许 <code>root</code> 用户以密码的方式登录 <code>ssh</code></p>
+<p>生成密钥的时候最好设置 <code>passphrase</code>，这样即使密钥泄露了，别人也不一定能偷用。</p>
+<ol start="0">
+<li>
+<p><code>ssh-keygen -t rsa -b 4096 -C &quot;xxx&quot;</code> 生成密钥，<code>-C</code> 是注释的意思，这里一般用自己的邮箱，但是当然也可以随便填</p>
+</li>
+<li>
+<p><code>scp -r ~/.ssh normal@192.168.32.128:~/</code> 拷贝本机 <code>WSL</code> 下的密钥到虚拟机</p>
+</li>
+<li>
+<p><code>ssh-copy-id -i ~/.ssh/id_rsa.pub normal@192.168.32.128</code> 将公钥复制到虚拟机的 <code>authorized_keys</code></p>
+</li>
+</ol>
+<h3 id="配置_apt_仓库镜像"><a class="zola-anchor" href="#配置_apt_仓库镜像" aria-label="Anchor link for: 配置_apt_仓库镜像">
+    #<span class="sub">3</span>
+</a>
+配置 <code>apt</code> 仓库镜像</h3>
+<p>先记得备份， 然后修改 <code>vim /etc/apt/sources.list</code></p>
+<pre style="background-color:#fdf6e3;">
+<code><span style="color:#657b83;">deb http://mirrors.163.com/debian/ buster main non-free contrib
+deb http://mirrors.163.com/debian/ buster-updates main non-free contrib
+deb http://mirrors.163.com/debian/ buster-backports main non-free contrib
+deb http://mirrors.163.com/debian-security/ buster/updates main non-free contrib
+
+deb-src http://mirrors.163.com/debian/ buster main non-free contrib
+deb-src http://mirrors.163.com/debian/ buster-updates main non-free contrib
+deb-src http://mirrors.163.com/debian/ buster-backports main non-free contrib
+deb-src http://mirrors.163.com/debian-security/ buster/updates main non-free contrib
+</span></code></pre>
+<p>这里的 <code>buster</code> 是 <code>Debian 10.X</code> 的发行代号</p>
+<p>参考：<a rel="noopener nofollow noreferrer" target="_blank" href="https://mirrors.163.com/.help/debian.html">https://mirrors.163.com/.help/debian.html</a></p>
+<h3 id="配置代理"><a class="zola-anchor" href="#配置代理" aria-label="Anchor link for: 配置代理">
+    #<span class="sub">3</span>
+</a>
+配置代理</h3>
+<p>主机上使用 <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/Fndroid/clash_for_windows_pkg/releases">Clash For Windows</a> 代理，开启 <code>Allow LAN</code> 允许局域网连接。</p>
+<p>下载设置环境的脚本文件 <a href="/attaches/%7E2021-03/proxy.tar">proxy.tar</a></p>
+<p>可以 <code>source</code> 手动执行也可以配置个 <code>alias</code></p>
+<p>可以用 <code>curl cip.cc</code> 和 <code>sudo curl cip.cc</code> 来确认是否输出你期望的代理地址。</p>
+<p>如果 <code>sudo</code> 没有走代理，修改 <code>/etc/sudoers/</code> 文件，加入一行</p>
+<pre style="background-color:#fdf6e3;">
+<code class="language-bash" data-lang="bash"><span style="color:#b58900;">Defaults</span><span style="color:#657b83;"> env_keep += </span><span style="color:#839496;">&quot;</span><span style="color:#2aa198;">http_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY</span><span style="color:#839496;">&quot;
+</span></code></pre>
+<p>这个文件权限是 <code>440</code>，需要先加个写入权限 </p>
+<p><code>sudo chmod 640 /etc/sudoers</code>，修改完记得把权限改回来。</p>
+<h3 id="安装_zsh_和_oh-my-zsh"><a class="zola-anchor" href="#安装_zsh_和_oh-my-zsh" aria-label="Anchor link for: 安装_zsh_和_oh-my-zsh">
+    #<span class="sub">3</span>
+</a>
+安装 <code>zsh</code> 和 <code>oh-my-zsh</code></h3>
+<ol>
+<li>
+<p><code>sodu apt-get install zsh</code> 安装 <code>zsh</code></p>
+</li>
+<li>
+<p><code>chsh -s /bin/zsh</code> 设置默认 <code>shell</code></p>
+</li>
+<li>
+<p>重新打开终端，<code>echo $SHELL</code> 查看是否为 <code>zsh</code></p>
+</li>
+<li>
+<p>安装 <code>oh-my-zsh</code>，需要提前安装 <code>git</code></p>
+</li>
+</ol>
+<pre style="background-color:#fdf6e3;">
+<code><span style="color:#657b83;"># 一般这步需要开启代理 `source ~/.proxy/openproxy.sh`
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+</span></code></pre>
+<ol start="5">
+<li>
+<p>下载修改版的 <a href="/attaches/%7E2021-03/ys-mod.zsh-theme">ys-mod.zsh-theme</a> 到 <code>~/.oh-my-zsh/themes</code> 下</p>
+</li>
+<li>
+<p>修改 <code>~/.zshrc</code></p>
+</li>
+</ol>
+<pre style="background-color:#fdf6e3;">
+<code class="language-bash" data-lang="bash"><span style="color:#268bd2;">ZSH_THEME</span><span style="color:#657b83;">=</span><span style="color:#839496;">&quot;</span><span style="color:#2aa198;">ys-mod</span><span style="color:#839496;">&quot;
+</span><span style="color:#859900;">alias </span><span style="color:#b58900;">openproxy</span><span style="color:#657b83;">=</span><span style="color:#839496;">&quot;</span><span style="color:#2aa198;">source ~/.proxy/openproxy.sh</span><span style="color:#839496;">&quot;
+</span><span style="color:#859900;">alias </span><span style="color:#b58900;">closeproxy</span><span style="color:#657b83;">=</span><span style="color:#839496;">&quot;</span><span style="color:#2aa198;">source ~/.proxy/closeproxy.sh</span><span style="color:#839496;">&quot;
+</span></code></pre>
+<ol start="7">
+<li><code>source ~/.zshrc</code></li>
+</ol>
+<h3 id="修改系统时区"><a class="zola-anchor" href="#修改系统时区" aria-label="Anchor link for: 修改系统时区">
+    #<span class="sub">3</span>
+</a>
+修改系统时区</h3>
+<p><code>timedatectl</code> 查看当前时区设置</p>
+<pre style="background-color:#fdf6e3;">
+<code class="language-bash" data-lang="bash"><span style="color:#b58900;">λ</span><span style="color:#657b83;"> timedatectl
+               </span><span style="color:#b58900;">Local</span><span style="color:#657b83;"> time: Sun 2021-03-14 09:57:31 EDT
+           </span><span style="color:#b58900;">Universal</span><span style="color:#657b83;"> time: Sun 2021-03-14 13:57:31 UTC
+                 </span><span style="color:#b58900;">RTC</span><span style="color:#657b83;"> time: Sun 2021-03-14 13:57:32
+                </span><span style="color:#b58900;">Time</span><span style="color:#657b83;"> zone: US/Eastern (EDT,</span><span style="color:#268bd2;"> -0400</span><span style="color:#657b83;">)
+</span><span style="color:#b58900;">System</span><span style="color:#657b83;"> clock synchronized: yes
+              </span><span style="color:#b58900;">NTP</span><span style="color:#657b83;"> service: active
+          </span><span style="color:#b58900;">RTC</span><span style="color:#657b83;"> in local TZ: no
+</span></code></pre>
+<p>系统时区通过链接文件 <code>/etc/localtime</code> 配置，该链接指向 <code>/usr/share/zoneinfo</code> 目录下的一个二进制时区标识文件。</p>
+<p>另外一个检查时区的方法就是显示这个链接文件指向的实际路径，使用 <code>ls</code> 命令：</p>
+<pre style="background-color:#fdf6e3;">
+<code class="language-bash" data-lang="bash"><span style="color:#b58900;">ls</span><span style="color:#268bd2;"> -l</span><span style="color:#657b83;"> /etc/localtime
+</span><span style="color:#b58900;">lrwxrwxrwx</span><span style="color:#657b83;"> 1 root root 23 Nov 21 23:44 /etc/localtime -&gt; /usr/share/zoneinfo/UTC
+</span></code></pre>
+<p>在修改时区时，你将需要找到你想要使用的时区的一个很长的名字。时区通常使用&quot;地区/城市&quot;格式.</p>
+<p>想要列出所有可用的时区，你可以列出 <code>/usr/share/zoneinfo</code> 目录下的所有文件</p>
+<p>或者运行 <code>timedatectl</code> 命令，加上 <code>list-timezones</code> 选项：</p>
+<pre style="background-color:#fdf6e3;">
+<code class="language-bash" data-lang="bash"><span style="color:#b58900;">timedatectl</span><span style="color:#657b83;"> list-timezones
+</span><span style="color:#b58900;">...
+America/Monterrey
+America/Montevideo
+America/Montserrat
+America/Nassau
+America/New_York
+...
+</span></code></pre><pre style="background-color:#fdf6e3;">
+<code class="language-bash" data-lang="bash"><span style="color:#b58900;">sudo</span><span style="color:#657b83;"> timedatectl set-timezone Asia/Shanghai
+</span></code></pre>
+<p>最后再验证下修改 <code>timedatectl</code></p>
+<p>参考：<a rel="noopener nofollow noreferrer" target="_blank" href="https://zhuanlan.zhihu.com/p/137122724">https://zhuanlan.zhihu.com/p/137122724</a></p>
+<h3 id="关闭_swap"><a class="zola-anchor" href="#关闭_swap" aria-label="Anchor link for: 关闭_swap">
+    #<span class="sub">3</span>
+</a>
+关闭 <code>swap</code></h3>
+<p>因为这里安装系统的时候就没有划分 <code>swap</code> 分区，直接坐下笔记</p>
+<p><a rel="noopener nofollow noreferrer" target="_blank" href="https://serverfault.com/questions/684771/best-way-to-disable-swap-in-linux">https://serverfault.com/questions/684771/best-way-to-disable-swap-in-linux</a></p>
+<h3 id="未完待续"><a class="zola-anchor" href="#未完待续" aria-label="Anchor link for: 未完待续">
+    #<span class="sub">3</span>
+</a>
+未完待续</h3>
+
+          </div>
+          <div class="columns is-multiline is-gapless">
+            <div class="column">
+              
+              
+  <p>
+    <span class="has-text-black has-text-weight-normal">Categories:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;categories&#x2F;运维开发&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-folder fa-xs"></i>
+        </span>
+        运维开发
+      </a>
+    
+  </p>
+
+              
+            </div>
+            <div class="column has-text-right-desktop">
+              
+              
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;tags&#x2F;vmware&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        vmware
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;tags&#x2F;wsl&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        wsl
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;tags&#x2F;linux&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        linux
+      </a>
+    
+  </p>
+
+              
+            </div>
+          </div>
+        </article>
+      </div>
+      
+      <div class="column is-2 is-hidden-mobile">
+        <aside class="menu" style="position: sticky; top: 48px">
+          <div class="esa-catalog-title">CONTENTS</div>
+          <ul class="menu-list">
+            
+            <li>
+              <a id="link-开启_WSL" class="toc is-size-7 is-active" href="https://docs.tothetracker.link/archives/~devop/WSL 配合虚拟机搭建开发环境/#开启_WSL">
+                开启 WSL
+              </a>
+              
+            </li>
+            
+            <li>
+              <a id="link-虚拟机安装" class="toc is-size-7 " href="https://docs.tothetracker.link/archives/~devop/WSL 配合虚拟机搭建开发环境/#虚拟机安装">
+                虚拟机安装
+              </a>
+              
+            </li>
+            
+            <li>
+              <a id="link-系统设置" class="toc is-size-7 " href="https://docs.tothetracker.link/archives/~devop/WSL 配合虚拟机搭建开发环境/#系统设置">
+                系统设置
+              </a>
+              
+              <ul>
+                
+                <li>
+                  <a id="link-设置静态_ip" class="toc is-size-7" href="https://docs.tothetracker.link/archives/~devop/WSL 配合虚拟机搭建开发环境/#设置静态_ip">
+                    设置静态 ip
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-设置_ssh_密钥登录" class="toc is-size-7" href="https://docs.tothetracker.link/archives/~devop/WSL 配合虚拟机搭建开发环境/#设置_ssh_密钥登录">
+                    设置 ssh 密钥登录
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-配置_apt_仓库镜像" class="toc is-size-7" href="https://docs.tothetracker.link/archives/~devop/WSL 配合虚拟机搭建开发环境/#配置_apt_仓库镜像">
+                    配置 apt 仓库镜像
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-配置代理" class="toc is-size-7" href="https://docs.tothetracker.link/archives/~devop/WSL 配合虚拟机搭建开发环境/#配置代理">
+                    配置代理
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-安装_zsh_和_oh-my-zsh" class="toc is-size-7" href="https://docs.tothetracker.link/archives/~devop/WSL 配合虚拟机搭建开发环境/#安装_zsh_和_oh-my-zsh">
+                    安装 zsh 和 oh-my-zsh
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-修改系统时区" class="toc is-size-7" href="https://docs.tothetracker.link/archives/~devop/WSL 配合虚拟机搭建开发环境/#修改系统时区">
+                    修改系统时区
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-关闭_swap" class="toc is-size-7" href="https://docs.tothetracker.link/archives/~devop/WSL 配合虚拟机搭建开发环境/#关闭_swap">
+                    关闭 swap
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-未完待续" class="toc is-size-7" href="https://docs.tothetracker.link/archives/~devop/WSL 配合虚拟机搭建开发环境/#未完待续">
+                    未完待续
+                  </a>
+                </li>
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
+        </aside>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+  
+
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="has-text-centered">
+            <a class="later" href="https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;archives&#x2F;~case-study&#x2F;笔记本加装内存风扇突然转起来了&#x2F;">
+              <span class="icon">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>惠普战66加装内存风扇突然狂转
+            </a>
+          </div>
+           
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  
+
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div id="hyvor-talk-view">
+          <script src="https://utteranc.es/client.js"
+                  repo="t3link/t3link.github.io"
+                  issue-number="1"
+                  label="^💬"
+                  theme="github-light"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/getzola/zola">Zola</a> with <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/t3link/DeepThought">DeepThought</a>
+    </p>
+  </footer>
+  <a class="back-to-top" id="scroll_to_top_id">
+    <div>
+        <span><img src="https:&#x2F;&#x2F;docs.tothetracker.link&#x2F;images&#x2F;back_top.png"/></span>
+    </div>
+    <div style="float: right;">
+        <span id="scrollpercent">0</span>%
+    </div>
+</a>
+  
+
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script> -->
+
+  <!-- <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script> -->
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script> -->
+
+  <script src="/js/site.js"></script>
+
+  <script src="/js/elasticlunr.min.js"></script>
+  <script src="/search_index.en.js"></script>
+
+  <script src="/js/scroll.js"></script>
+
+  <!-- block 的用法: 父模版定义block，子模版中重写 -->
+  
+
+<script type="text/javascript">
+  const menuBarHeight = $("nav.navbar").height();
+  const tocItems = $('.toc');
+  const navSections = new Array($('.toc').length);
+
+  tocItems.each(function (i) {
+    let id = $(this).attr("id").substring(5);
+    navSections[i] = document.getElementById(id);
+  })
+
+  function isVisible(tocIndex) {
+    const current = navSections[tocIndex];
+    const next = tocIndex < tocItems.length - 1 ? navSections[tocIndex+1] : $("section.section").get(1);
+    
+    const c = current.getBoundingClientRect();
+    const n = next.getBoundingClientRect();
+    const h = (window.innerHeight || document.documentElement.clientHeight);
+
+    return (c.top <= h) && (c.top + (n.top - c.top) - menuBarHeight >= 0);
+  }
+
+  function activateIfVisible() {
+    for (b = true, i = 0; i < tocItems.length; i++) {
+      if (b && isVisible(i)) {
+        tocItems[i].classList.add('is-active');
+        b = false;
+      } else
+        tocItems[i].classList.remove('is-active');
+    }
+  }
+
+  var isTicking = null;
+  window.addEventListener('scroll', () => {
+    if (!isTicking) {
+      window.requestAnimationFrame(() => {
+        activateIfVisible();
+        isTicking = false;
+      });
+      isTicking = true;
+    }
+  }, false);
+</script>
+
+
+</body>
+
+</html>
