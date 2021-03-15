@@ -7,6 +7,7 @@ tags = ["zola", "github-pages"]
 
 [extra]
 toc = false
+issueId = 3
 +++
 
 目前博客托管在 [github pages](https://docs.github.com/en/github/working-with-github-pages) 上，由 [zola](https://github.com/getzola/zola) 生成静态的网页文件。昨天看到一个链接中带有 `~` 波浪号，觉得挺酷的，就想在自己的网站中也用上，所以把文字目录文件夹和图片资源文件夹都以 `~` 开头，但是发布到 `github pages` 后发现带有 `~` 波浪号的链接都 `404` 了。
